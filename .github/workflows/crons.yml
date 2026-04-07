@@ -1,0 +1,16 @@
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs at the start of every hour
+
+jobs:
+  studio-display:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6.0.2
+      - name: run
+        run: scripts/check_stock.sh
+        env:
+          SLACK_URL: ${{ secrets.SLACK_URL }}
+          WEB_URL: https://www.apple.com/ca/shop/refurbished/mac/display
+          SEARCH_STRING: "Refurbished Apple Studio Display, Standard glass, Tilt- and height-adjustable stand"
