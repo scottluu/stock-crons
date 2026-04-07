@@ -12,7 +12,7 @@ if [[ "$CONTENT" == *"$SEARCH_STRING"* ]]; then
     echo "Match found! Sending POST request..."
 
     # Safely construct the JSON payload
-    PAYLOAD=$(printf '{"text":"%s"}' "$WEB_URL")
+    PAYLOAD=$(printf '{"text":"%s: %s"}' "$WEB_URL" "$SEARCH_STRING")
 
     curl -X POST "$SLACK_URL" \
          -H "Content-Type: application/json" \
