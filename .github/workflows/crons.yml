@@ -1,6 +1,7 @@
 on:
   schedule:
     - cron: '0 * * * *' # Runs at the start of every hour
+  workflow_dispatch:
 
 jobs:
   studio-display:
@@ -9,7 +10,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v6.0.2
       - name: run
-        run: scripts/check_stock.sh
+        run: sh scripts/check_stock.sh
         env:
           SLACK_URL: ${{ secrets.SLACK_URL }}
           WEB_URL: https://www.apple.com/ca/shop/refurbished/mac/display
