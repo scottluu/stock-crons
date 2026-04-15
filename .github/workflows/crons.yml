@@ -1,6 +1,6 @@
 on:
-  schedule:
-    - cron: '11 * * * *' # Runs at the start of every hour
+  # schedule:
+  #   - cron: '11 * * * *' # Runs at the start of every hour
   workflow_dispatch:
 
 jobs:
